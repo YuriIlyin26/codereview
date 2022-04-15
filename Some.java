@@ -79,7 +79,7 @@ public class Some {
             this.bossNumber = bossN;
             this.employeeNumber = emloyeeN;
             if (getPreferredNumberOfManagers(bossN, employeeNumber) != bossN)
-                throw new RuntimeException("Плохая структура организации. Начальников должно быть меньше");
+                throw new RuntimeException("bad boss number");
         }
 
         static public Organization loadFromFile(String file, int bossN, int emloyeeN) {
@@ -87,7 +87,7 @@ public class Some {
 
             Scanner scanner = new Scanner(f);
 
-            // загружаем начальников из файла
+            // load bosses
             BigBoss boss = new BigBoss;
             for (int i = 0; i < bossN; i++) {
                 boss.firstname = scanner.next();
@@ -96,7 +96,7 @@ public class Some {
                 employees2.add(boss);
             }
 
-            // загружаем обычных сотрудников из файла
+            // load employees
             int i = 0;
             while (!scanner.hasNext() && i < emloyeeN) {
                 Employee employee = new Employee;
